@@ -1,15 +1,43 @@
+import java.util.Scanner;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("nhap n= ");
+        int n = sc.nextInt();
+        int[] array = new int[n];
+        Utils.input(array);
+        System.out.println("\n--- Menu ---");
+        System.out.println("1. Tính tổng các phần tử trong mảng");
+        System.out.println("2. In ra phần tử lớn nhất, nhỏ nhất trong mảng");
+        System.out.println("3. Sắp xếp lại mảng theo chiều tăng dần");
+        System.out.println("4. In ra số nguyên tố lớn nhất trong mảng");
+        System.out.print("Nhập lựa chọn: ");
+        int chose = sc.nextInt();
+        switch (chose) {
+            case 1:
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+                Utils.sum(array);
+                break;
+            case 2:
+                Utils.max(array);
+                Utils.min(array);
+                break;
+            case 3:
+                Utils.arrange(array);
+                break ;
+            case 4:
+                int maxPrime = Utils.soNguyenToLonNhat(array);
+                if (maxPrime == -1)
+                    System.out.println("Không có số nguyên tố nào trong mảng.");
+                else
+                    System.out.println("Số nguyên tố lớn nhất trong mảng là: " + maxPrime);
+                break;
+
+            default:
+                System.out.println("Lựa chọn không hợp lệ!");
         }
     }
 }
