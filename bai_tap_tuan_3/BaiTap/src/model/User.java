@@ -7,12 +7,10 @@ public class User {
     private String email;
     private String phoneNumber;
 
-    // Default constructor
     public User() {
         this.id = generateId();
     }
 
-    // Parameterized constructor
     public User(String username, String password, String email, String phoneNumber) {
         this.id = generateId();
         this.username = username;
@@ -21,12 +19,10 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    // Generate unique ID
     private String generateId() {
         return "USER_" + System.currentTimeMillis() + "_" + (int)(Math.random() * 1000);
     }
 
-    // Getters and Setters
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
 
@@ -42,7 +38,6 @@ public class User {
     public String getPhoneNumber() { return phoneNumber; }
     public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
 
-    // toString method
     @Override
     public String toString() {
         return "User{" +

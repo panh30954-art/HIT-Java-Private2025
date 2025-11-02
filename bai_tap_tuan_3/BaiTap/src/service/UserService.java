@@ -51,7 +51,6 @@ public class UserService {
         return null;
     }
 
-    // Setter để cập nhật userCount
     public void setUserCount(int userCount) {
         this.userCount = userCount;
     }

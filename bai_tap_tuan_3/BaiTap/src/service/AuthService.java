@@ -24,13 +24,11 @@ public class AuthService {
         System.out.print("Password: ");
         String password = scanner.nextLine();
 
-        // Validate input
         if (username.isEmpty() || password.isEmpty()) {
             System.out.println(" Username and password cannot be empty!");
             return;
         }
 
-        // Check credentials
         for (int i = 0; i < userCount; i++) {
             User user = users[i];
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
@@ -55,7 +53,6 @@ public class AuthService {
         String email = getValidatedInput("Email: ", this::isValidEmail);
         String phoneNumber = getValidatedInput("Phone Number: ", this::isValidPhoneNumber);
 
-        // Check if username already exists
         for (int i = 0; i < userCount; i++) {
             if (users[i].getUsername().equals(username)) {
                 System.out.println(" Username already exists!");
@@ -63,13 +60,11 @@ public class AuthService {
             }
         }
 
-        // Create new user and add to array
         User newUser = new User(username, password, email, phoneNumber);
         users[userCount] = newUser;
         userCount++;
         System.out.println(" Registration successful! User ID: " + newUser.getId());
 
-        // Update userCount in UserService
         userService.setUserCount(userCount);
     }
 
@@ -83,7 +78,6 @@ public class AuthService {
         }
     }
 
-    // Validation methods (giữ nguyên)
     private boolean isValidUsername(String username) {
         if (username.length() < 3) {
             System.out.println(" Username must be at least 3 characters long!");
@@ -135,10 +129,10 @@ public class AuthService {
                     System.out.println(user.toString());
                     break;
                 case "3":
-                    System.out.println("👋 Logged out successfully!");
+                    System.out.println("Logged out successfully!");
                     return;
                 default:
-                    System.out.println("❌ Invalid option!");
+                    System.out.println("Invalid option!");
             }
         }
     }
